@@ -1,3 +1,10 @@
+import sys
+import os
+
+# Adjust the path to the 'src' directory
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(project_root)
+
 from src.cnnClassifier.config.configuration import ConfigurationManager
 from src.cnnClassifier.components.data_ingestion import DataIngestion
 from src.cnnClassifier import logger
