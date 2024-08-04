@@ -124,12 +124,37 @@ def get_size(path: Path) -> str:
     size_in_kb = round(os.path.getsize(path)/1024)
     return f"~ {size_in_kb} KB"
 
+from PIL import Image
+import io
+from PIL import Image
+import base64
+import io
 
-def decodeImage(imgstring, fileName):
+def decodeImage(imgstring, fileName=None):
+    """Decodes a base64 encoded image string into a PIL Image object and optionally saves it to a file.
+
+    Args:
+        imgstring (str): The base64 encoded image string.
+        fileName (str, optional): The file path where the image should be saved. If None, the image will not be saved.
+
+    Returns:
+        PIL.Image: The decoded image as a PIL Image object.
+    """
+    
+    # Decode the base64 string
     imgdata = base64.b64decode(imgstring)
-    with open(fileName, 'wb') as f:
-        f.write(imgdata)
-        f.close()
+    
+    # Create a BytesIO object to handle the image data
+    image_file = io.BytesIO(imgdata)
+    
+    # Open the image using PIL
+    img = Image.open(image_file)
+    
+    # Save the image if a fileName is provided
+    if fileName:
+        img.save(fileName)
+    
+    return img
 
 
 def encodeImageIntoBase64(croppedImagePath):
