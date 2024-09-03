@@ -2,7 +2,8 @@
 
 # Project Overview
 
-In the evolving healthcare landscape, this project is transforming cancer diagnosis through Machine Learning Operations (MLOps). By integrating advanced deep learning with a robust MLOps pipeline, it addresses the limitations of traditional diagnostic methods. This approach enhances both accuracy and efficiency, providing healthcare professionals with an automated tool that improves diagnostic processes and patient outcomes across various types of cancer.
+In the evolving healthcare landscape, this project is transforming chest cancer diagnosis through Machine Learning Operations (MLOps). By integrating advanced deep learning with a robust MLOps pipeline, it addresses the limitations of traditional diagnostic methods. This approach enhances both accuracy and efficiency, providing healthcare professionals with an automated tool that improves the diagnostic process and patient outcomes for chest cancer.
+
 
 # Pipeline Stages
 
@@ -29,11 +30,13 @@ In the evolving healthcare landscape, this project is transforming cancer diagno
 **Logging with MLflow and DVC:**
 
 **MLflow:** Used to log key metrics, hyperparameters, and model artifacts, providing visibility and reproducibility.
+
 **DVC (Data Version Control):** Essential for versioning datasets, linking evaluation metrics to specific dataset versions for enhanced traceability.
 
 # Application Layer
 
 **Flask API:** Developed a RESTful API using Flask to handle requests and interact with the adenocarcinoma classification model.
+
 **React Interface:** Created a user-friendly web interface with React to provide an intuitive front-end experience for interacting with the Flask API and visualizing classification results.
 
 # CI/CD Pipeline With Github Actions
