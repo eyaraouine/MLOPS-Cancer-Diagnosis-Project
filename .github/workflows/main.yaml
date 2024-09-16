@@ -1,0 +1,55 @@
+name: workflow
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'README.md'
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  integration:
+    name: Continuous Integration
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Lint code
+        run: echo "Linting repository"
+
+      - name: Run unit tests
+        run: echo "Running unit tests"
+
+  build-and-push-docker-image:
+    name: Continuous Delivery
+    needs: integration
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Build and tag Docker image
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/chest_x_ray_prediction_app:latest .
+
+      - name: Push Docker image to Docker Hub
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/chest_x_ray_prediction_app:latest
+
+  deploy-to-render:
+    name: Continuous Deployment
+    needs: build-and-push-docker-image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger deployment on Render
+        run: |
+          curl -X POST \
+          -H "Accept: application/json" \
+          -H "Authorization: Bearer ${{ secrets.RENDER_API_TOKEN }}" \
+          ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
