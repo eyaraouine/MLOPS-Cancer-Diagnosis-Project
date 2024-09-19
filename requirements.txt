@@ -14,6 +14,13 @@ ensure==1.0.2
 joblib
 types-PyYAML
 scipy
+shap
+openai
+opencv-python
 Flask
 Flask-Cors
+langchain
+langchain-core
+langchain-openai 
+langchain-exa
 -e .
