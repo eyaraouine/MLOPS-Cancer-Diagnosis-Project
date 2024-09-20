@@ -10,7 +10,7 @@ A classification model enhanced with Explainable AI (XAI) that allows users to u
 
 **2.Chatbot:**
 
-An interactive conversational agent with detailed features designed to assist healthcare professionals and patients by providing medical information, diagnostic assistance, and patient support.
+An interactive conversational agent with detailed features designed to assist healthcare professionals and patients by providing diagnostic assistance, medical information and patient support.
 
 ## I. X-Ray Diagnosis Pipeline
    
@@ -31,7 +31,7 @@ An interactive conversational agent with detailed features designed to assist he
 **3. Model Evaluation:**
 
 **Loss Measurement:** The loss metric quantifies the difference between predicted and actual values during training. A lower loss indicates better model performance.
-Accuracy Assessment: Accuracy measures the model's performance in classifying chest cancer, calculated as the ratio of correctly predicted samples to the total number of samples.
+**Accuracy Assessment:** Accuracy measures the model's performance in classifying chest cancer, calculated as the ratio of correctly predicted samples to the total number of samples.
 **Logging with MLflow and DVC:**
 
 **MLflow:** Used to log key metrics, hyperparameters, and model artifacts, providing visibility and reproducibility.
@@ -113,7 +113,9 @@ Users can upload an image and input a textual query. The system searches a datab
 **Render:** The deployment process is automated via Render. Once the Docker image is available on Docker Hub, Render pulls the image and deploys it, ensuring the Flask web application is updated and running smoothly in a stable environment.
 
 # Screenshots:
-![image](https://github.com/user-attachments/assets/3a0f700c-b6c6-4a93-80a4-971d2c5fc09c)
-![image](https://github.com/user-attachments/assets/0599cef5-362f-415b-85c3-9d522de6f9e7)
-![image](https://github.com/user-attachments/assets/2f7b6c3f-c2b0-42b0-b645-af5f59dcb9b6)
+![image](https://github.com/user-attachments/assets/e209efc6-85b1-42ae-a746-af785344e0fc)
+![image](https://github.com/user-attachments/assets/4df4dcd1-3fbc-4e3c-a152-c41632775787)
+![image](https://github.com/user-attachments/assets/2e762981-d9c8-4cf3-8d85-b166c3062541)
+
+
 
